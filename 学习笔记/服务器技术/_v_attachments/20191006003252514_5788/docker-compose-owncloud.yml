@@ -1,0 +1,58 @@
+version: "3.5"
+services: 
+  mysql:
+    image: mysql:5.7.27
+    container_name: "mysql"
+    expose:
+      - "3306"
+    ports:
+      - "9306:3306"
+    volumes:
+      - /data/docker-data/mysql/conf:/etc/mysql/conf.d
+      - /data/docker-data/mysql/logs:/logs
+      - /data/docker-data/mysql/data:/var/lib/mysql
+    dns:
+      - 8.8.8.8
+      - 114.114.114.114
+    environment:
+      LANG: zh_CN.UTF-8
+      MYSQL_ROOT_PASSWORD: jutao110
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=1
+    restart: always
+    deploy:
+      replicas: 1
+    networks:
+      cloud_network: 
+        ipv4_address: 192.168.0.5
+
+  owncloud:
+    image: owncloud
+    container_name: "owncloud"
+    expose:
+      - "80"
+    ports:
+      - "9002:80"
+    volumes:
+      - /data/docker-data/owncloud:/var/www/html/data
+    dns:
+      - 8.8.8.8
+      - 114.114.114.114
+    environment:
+      LANG: zh_CN.UTF-8
+    restart: always
+    deploy:
+      replicas: 1
+    networks:
+      cloud_network: 
+        ipv4_address: 192.168.0.2
+    depends_on:
+      - mysql
+
+
+
+networks:
+  cloud_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/16

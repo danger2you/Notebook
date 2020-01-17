@@ -1,0 +1,50 @@
+vnote_backup_file_826537664 E:/笔记总结/学习工作笔记/项目笔记/德丰气象/20191009服务器使用情况分析.md
+# 20191009服务器使用情况分析
+> 主要统计德丰气象四台服务器内存使用情况 ，包括服务器: 39.106.9.232 ( Master )、39.106.213.111 ( Node1 )、39.107.114.7 ( Node2 )、 39.105.118.47 ( Node3 )
+
+## 服务器使用情况
+### 一. 39.106.9.232 ( Master )
+1. 配置: 
+ * CPU: 16核
+ * 内存: 32G
+
+2. 内存使用情况：
+* JarApp - [collect-receive.jar] - 8G
+* Service - [Kafka-server] - 1.5G
+* JarApp - [plane.jar] - 1.5G
+* JarApp - [colormap-online.jar] - 1.5G
+* JarApp - [oscar.jar] - 1.5G
+* JarApp - [xxl-job-admin.jar] - 1.5G
+* Service - [Zookeeper] - 1G
+* Service - [Mysql] - 1G
+* ......
+
+### 二. 39.106.213.111 ( Node1 )
+1. 配置:
+* CPU: 16核
+* 内存：32G
+
+2. 内存使用情况：
+* JarApp - [htdf-jxh.jar] - 4.5G
+* JarApp - [htdf-rabmq.jar] - 4.5G
+* JarApp - [htdf-server.jar] - 2G
+* JarApp - [htdf-router.jar] -2G
+* JarApp - [htdf-service-manager.jar] - 1.5G
+* JarApp - [htdf-interpolate.jar] - 2G
+* JarApp - [htdf-forecast.jar] - 1.5G
+* Service - [Tomcat] - 1G
+* Service - [Mysql] - 1G
+* ...
+20G+
+
+### 三. 39.107.114.7 ( Node2 )  
+### 四. 39.105.118.47 ( Node3 )
+
+## 亚马讯服务器配置分配 
+| 服务器节点 | CPU | 内存 | 硬盘 |     |     |
+| :-------- | :-- | :-- | :-- | :-- | :-- |
+|           |     |     |     |     |     |
+|           |     |     |     |     |     |
+|           |     |     |     |     |     |
+|           |     |     |     |     |     |
+|           |     |     |     |     |     |
